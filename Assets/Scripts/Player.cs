@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     }
 
 
-    private void OnEnable()
+    private void Start()
     {
         GameInput.Instance.OnInteractAction += Instance_OnInteractAction;
     }
