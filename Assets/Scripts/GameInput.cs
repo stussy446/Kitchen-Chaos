@@ -5,27 +5,20 @@ using UnityEngine;
 
 public class GameInput : MonoBehaviour
 {
-    private static GameInput instance;
     private PlayerInputActions playerInputActions;
 
     public event EventHandler OnInteractAction;
 
-    public static GameInput Instance
-    {
-        get
-        {
-            if(instance == null)
-            {
-                Debug.LogError(message: "GameInput is null");
-            }
-
-            return instance;
-        }
-    }
+    public static GameInput Instance { get; private set; }
 
     private void Awake()
     {
-        instance = this;
+        if(Instance != null)
+        {
+            Debug.LogError("There are multiple GameInput instances");
+        }
+
+        Instance = this;
 
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
