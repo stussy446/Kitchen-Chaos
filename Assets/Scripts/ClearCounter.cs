@@ -19,8 +19,8 @@ public class ClearCounter : MonoBehaviour, IKitchenObjectParent
         else
         {
             // Give the object to the player
+            kitchenObject.SetKitchenObjectParent(player);
         }
-
     }
 
     public Transform GetKitchenObjectFollowTransform()
